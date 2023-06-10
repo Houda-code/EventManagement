@@ -10,11 +10,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @AllArgsConstructor
 public class FinancialReportServiceImpl implements FinancialReportService {
-    FinancialReportService financialReportService;
 
-    @Override
-    public FinancialReport AjouterFinancialReport(FinancialReport ReportId) {
-        return ReportId;
-    }
 
 }
