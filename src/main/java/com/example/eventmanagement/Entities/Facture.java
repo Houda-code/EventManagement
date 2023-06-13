@@ -9,5 +9,5 @@ import java.io.Serializable;
 public class Facture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer IdFacture;
+    private Integer Idfacture;
 }
