@@ -2,6 +2,7 @@ package com.example.eventmanagement.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 public class Evenement implements Serializable {
     @Id
