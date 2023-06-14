@@ -1,13 +1,13 @@
 package com.example.eventmanagement.Controller;
 
 import com.example.eventmanagement.Entities.Calendar;
+import com.example.eventmanagement.Entities.User;
 import com.example.eventmanagement.Repositories.CalendarRepository;
 import com.example.eventmanagement.Services.ICalendarService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -19,5 +19,9 @@ public class CalendarRestController {
     public Calendar addCalendar(@RequestBody Calendar calendar){
         return calendarRepository.save(calendar);
     }
-
+    @GetMapping("/retrieve-all-Calendars")
+    public List<Calendar> getCalendars() {
+        List<Calendar> listCalendars = iCalendarService.RetrieveAllCalendars();
+        return listCalendars;
+    }
 }
