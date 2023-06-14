@@ -1,5 +1,7 @@
 package com.example.eventmanagement.Services;
 
-public interface IUserService {
+import com.example.eventmanagement.Entities.User;
 
+public interface IUserService {
+      User addUser(User user);
 }
