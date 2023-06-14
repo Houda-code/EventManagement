@@ -18,7 +18,8 @@ public class EventControoler {
     @PostMapping("/add-Event")
     public Evenement addEvent(@RequestBody Evenement evenement){
         return eventRepository.save(evenement);
-
     }
+
+
 
 }
