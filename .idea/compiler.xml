@@ -12,6 +12,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="EventManagement" target="1.8" />
+      <module name="EventManagement (1)" target="1.5" />
+      <module name="EventManagement (2)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
