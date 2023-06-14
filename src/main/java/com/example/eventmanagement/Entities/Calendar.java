@@ -12,9 +12,8 @@ public class Calendar implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int CalendarId  ;
 
-   // @ManyToOne
-   // @JoinColumn(name = "evenement")
-   // private Evenement event;
+    @ManyToOne
+    Evenement event;
 
 
     public Calendar() {

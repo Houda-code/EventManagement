@@ -9,5 +9,9 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Ticketid;
 
+    @OneToOne(mappedBy = "ticket")
+    private Reservation reservation;
 
+    @OneToOne(mappedBy = "ticket")
+    private Payment payment;
 }

@@ -3,6 +3,7 @@ package com.example.eventmanagement.Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.*;
 
 @Entity
 public class Evenement implements Serializable {
@@ -21,7 +22,21 @@ public class Evenement implements Serializable {
     private Date satrtDate;
     @Temporal(TemporalType.DATE)
     private Date endDate;
-    private Statut statur;
+    private Statut statut;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
+    private Set<Calendar> calendars;
+
+   @ManyToOne
+    User user;
+
+   @OneToOne
+    private FinancialReport financialReport;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
+    private Set<Facture> factures;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
+    private Set<Reservation> reservations;
 
 }

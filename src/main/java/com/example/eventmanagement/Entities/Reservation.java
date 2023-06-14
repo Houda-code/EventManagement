@@ -13,4 +13,9 @@ public class Reservation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date ReservDate;
 
+    @ManyToOne
+    Evenement event;
+
+    @OneToOne
+    private Ticket ticket;
 }
