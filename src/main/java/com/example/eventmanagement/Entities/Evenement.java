@@ -2,6 +2,7 @@ package com.example.eventmanagement.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public class Evenement implements Serializable {
@@ -13,6 +14,14 @@ public class Evenement implements Serializable {
     private  EventCategory eventCategory;
     @Enumerated(EnumType.STRING)
     private TypeEvent typeEvent;
+    private String localisation;
+    private String description;
+    private Integer nbrMax;
+    @Temporal(TemporalType.DATE)
+    private Date satrtDate;
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
+    private Statut statur;
 
 
 }
