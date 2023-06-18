@@ -23,7 +23,7 @@ public class PaymentController {
         return new ResponseEntity<>(payments, HttpStatus.OK);
     }
 
-    @GetMapping("/{IdPaymentOperation}")
+    @GetMapping("/{get-payment-by-id}")
     public ResponseEntity<Payment> getPaymentById(@PathVariable Integer IdPaymentOperation) {
         return paymentService.getPaymentById(IdPaymentOperation)
                 .map(payment -> new ResponseEntity<>(payment, HttpStatus.OK))
@@ -36,7 +36,7 @@ public class PaymentController {
         return new ResponseEntity<>(savedPayment, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{IdPaymentOperation}")
+    @PutMapping("/{update-payment}")
     public ResponseEntity<Payment> updatePayment(@PathVariable Integer IdPaymentOperation, @RequestBody Payment payment) {
         if (!paymentService.getPaymentById(IdPaymentOperation).isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -46,7 +46,7 @@ public class PaymentController {
         return new ResponseEntity<>(updatedPayment, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{IdPaymentOperation}")
+    @DeleteMapping("/{delete-payment}")
     public ResponseEntity<Void> deletePayment(@PathVariable Integer IdPaymentOperation) {
         if (!paymentService.getPaymentById(IdPaymentOperation).isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

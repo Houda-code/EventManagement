@@ -32,7 +32,7 @@ public class FactureController {
         return new ResponseEntity<>(factures, HttpStatus.OK);
     }
 
-    @GetMapping("/{Idfacture}")
+    @GetMapping("/{get-facture-by-id}")
     public ResponseEntity<Facture> getFactureById(@PathVariable Integer Idfacture) {
         return factureService.getFactureById(Idfacture)
                 .map(facture -> new ResponseEntity<>(facture, HttpStatus.OK))
@@ -45,7 +45,7 @@ public class FactureController {
         return new ResponseEntity<>(savedFacture, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{Idfacture}")
+    @PutMapping("/{update-facture}")
     public ResponseEntity<Facture> updateFacture(@PathVariable Integer Idfacture, @RequestBody Facture facture) {
         if (!factureService.getFactureById(Idfacture).isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -55,7 +55,7 @@ public class FactureController {
         return new ResponseEntity<>(updatedFacture, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{Idfacture}")
+    @DeleteMapping("/{delete-facture}")
     public ResponseEntity<Void> deleteFacture(@PathVariable Integer Idfacture) {
         if (!factureService.getFactureById(Idfacture).isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
