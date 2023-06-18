@@ -12,4 +12,6 @@ public class Facture implements Serializable {
     Evenement event;
 
 
+    public void setIdfacture(Integer idfacture) {
+    }
 }
