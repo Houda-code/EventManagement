@@ -15,4 +15,7 @@ public class Payment implements Serializable {
 
     @OneToOne
     private Ticket ticket;
+
+    public void setIdPaymentOperation(Integer id) {
+    }
 }
