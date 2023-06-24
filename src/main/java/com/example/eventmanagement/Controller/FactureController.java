@@ -1,4 +1,5 @@
 package com.example.eventmanagement.Controller;
+
 import com.example.eventmanagement.Entities.Facture;
 import com.example.eventmanagement.Repositories.FactureRepository;
 import com.example.eventmanagement.Repositories.ReservationRepository;
@@ -12,13 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/Facture")
+
 public class FactureController {
-    FactureService factureService;
-    public final FactureRepository factureRepository;
-    @PostMapping("/add-Facture")
-    public Facture addFacture(@RequestBody Facture facture){
-        return factureRepository.save(facture);
-    }
+private final FactureService factureService;
+    private final FactureRepository factureRepository;
+
 
     @Autowired
     public FactureController(FactureService factureService, FactureRepository factureRepository) {

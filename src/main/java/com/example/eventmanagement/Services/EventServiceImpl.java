@@ -8,27 +8,5 @@ import org.springframework.stereotype.Service;
 @Service
 
 public class EventServiceImpl implements IEventService{
-    EventRepository eventRepository;
-    @Override
-    public Evenement addEvent(Evenement evenement) {
 
-        return eventRepository.save(evenement);
-
-    }
-
-    @Override
-    public Evenement updateEvent(Evenement evenement) {
-        return eventRepository.save(evenement);
-    }
-
-    @Override
-    public Evenement retreiveEventById(Integer id) {
-        return eventRepository.findById(id).get();
-    }
-
-    @Override
-    public Evenement deleteEvent(Evenement evenement) {
-         eventRepository.delete(evenement);
-        return evenement;
-    }
 }
