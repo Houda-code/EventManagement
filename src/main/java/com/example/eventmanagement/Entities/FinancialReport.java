@@ -19,7 +19,7 @@ public class FinancialReport implements Serializable {
     private Integer ReportId;
     private String title;  //Titre ou nom du rapport financier
     private String description; //Titre ou nom du rapport financier
-    @Temporal(TemporalType.DATE)
+        @Temporal(TemporalType.DATE)
     private Date startDate; //Date de début de la période couverte par le rapport financier.
     @Temporal(TemporalType.DATE)
     private Date endDate; //Date de fin de la période couverte par le rapport financier.
