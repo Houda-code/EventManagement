@@ -9,16 +9,4 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class ReservationServiceImpl implements ReservationService{
-    ReservationRepository reservationRepository;
-    @Override
-    public Reservation addReservation(Reservation reservation) {
-
-        return reservationRepository.save(reservation);
-
-    }
-
-    @Override
-    public List<Reservation> RetrieveAllReservations() {
-        return (List<Reservation>) reservationRepository.findAll();
-    }
-}
+   }

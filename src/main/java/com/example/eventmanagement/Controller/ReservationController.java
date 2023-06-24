@@ -13,17 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/Resservation")
 public class ReservationController {
-    ReservationService reservationService;
-    public final ReservationRepository reservationRepository;
-    @PostMapping("/add-Reservation")
-    public Reservation addReservation(@RequestBody Reservation reservation){
-      return  reservationRepository.save(reservation);
-    }
-
-    @GetMapping("/retrieve-all-Reservation")
-    public List<Reservation> getReservations() {
-        List<Reservation> listReservations = reservationService.RetrieveAllReservations();
-        return listReservations;
-    }
+ 
 
 }
