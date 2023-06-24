@@ -11,9 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-
+@RequestMapping("/Event")
 public class EventControoler {
+  IEventService eventService ;
 
+  public final EventRepository eventRepository;
+    @PostMapping("/addEvent")
+    public Evenement addEvent(@RequestBody Evenement event){
+        return eventRepository.save(event);
+    }
 
 
 
