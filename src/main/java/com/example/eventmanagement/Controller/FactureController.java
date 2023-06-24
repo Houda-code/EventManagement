@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/Facture")
->>>>>>> 255fc19a8e2721a0c49422200de44af950acc3ce
-public class FactureController {
 
+public class FactureController {
+private final FactureService factureService;
+    private final FactureRepository factureRepository;
 
 
     @Autowired
