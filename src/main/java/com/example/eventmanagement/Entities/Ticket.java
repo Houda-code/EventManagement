@@ -9,14 +9,14 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Calendar implements Serializable {
+public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int CalendarId  ;
+    private Integer Ticketid;
 
-    @ManyToOne
-    Evenement event;
+    @OneToOne(mappedBy = "ticket")
+    private Reservation reservation;
 
-
-
+    @OneToOne(mappedBy = "ticket")
+    private Payment payment;
 }
