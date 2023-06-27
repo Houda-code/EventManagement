@@ -28,7 +28,7 @@ public class Evenement implements Serializable {
     private String description;
     private Integer nbrMax;
     @Temporal(TemporalType.DATE)
-    private Date satrtDate;
+    private Date startDateEvent;
     @Temporal(TemporalType.DATE)
     private Date endDate;
     private Statut statut;

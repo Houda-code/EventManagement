@@ -19,6 +19,7 @@ public class CalendarServiceImpl implements ICalendarService {
 
     @Override
     public List<Calendar> RetrieveAllCalendars() {
+
         return (List<Calendar>) calendarRepository.findAll();
     }
 }
