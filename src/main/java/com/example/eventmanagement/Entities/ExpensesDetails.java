@@ -1,27 +1,25 @@
 package com.example.eventmanagement.Entities;
 
 import lombok.AllArgsConstructor;
-<<<<<<< HEAD
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-=======
+
 import lombok.NoArgsConstructor;
->>>>>>> 72481ca907f1c45e2850ab11a2f07c8d49e4a056
+
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-<<<<<<< HEAD
+
 @Getter
 @Setter
-=======
 
 @AllArgsConstructor
 @NoArgsConstructor
->>>>>>> 72481ca907f1c45e2850ab11a2f07c8d49e4a056
 public class ExpensesDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

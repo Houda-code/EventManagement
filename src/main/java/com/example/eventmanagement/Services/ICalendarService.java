@@ -9,4 +9,5 @@ public interface ICalendarService {
 
     Calendar addCalendar(Calendar calendar);
     List<Calendar> RetrieveAllCalendars();
+    Calendar GetCalendarByID(Integer CalendarId);
 }
