@@ -6,17 +6,15 @@ import com.example.eventmanagement.Entities.FinancialReport;
 import com.example.eventmanagement.Repositories.EventRepository;
 import com.example.eventmanagement.Services.IEventService;
 import lombok.AllArgsConstructor;
-
 import org.springframework.web.bind.annotation.*;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@RestController
+@AllArgsConstructor
+@RequestMapping("/Event")
 public class EventControoler {
 
  IEventService iEventService;

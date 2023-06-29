@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface IEventService  {
 
-
+    /*@Autowired
+     public void IEventService(EventRepository eventRepository){
+         this.eventRepository = eventRepository ;
+     }*/
     Evenement addEvent(Evenement event);
 
     Evenement getEventById(Integer id);

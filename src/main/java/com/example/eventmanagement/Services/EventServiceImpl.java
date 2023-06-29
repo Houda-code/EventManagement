@@ -1,10 +1,5 @@
 package com.example.eventmanagement.Services;
 
-
-
-
-public class EventServiceImpl implements IEventService{
-
 import com.example.eventmanagement.Entities.Evenement;
 import com.example.eventmanagement.Repositories.EventRepository;
 import lombok.AllArgsConstructor;
