@@ -1,12 +1,9 @@
 package com.example.eventmanagement.Entities;
 
-<<<<<<< HEAD
 import lombok.Getter;
 import lombok.Setter;
-=======
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
->>>>>>> 72481ca907f1c45e2850ab11a2f07c8d49e4a056
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -16,14 +13,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-<<<<<<< HEAD
 @Getter
 @Setter
-=======
-
 @AllArgsConstructor
 @NoArgsConstructor
->>>>>>> 72481ca907f1c45e2850ab11a2f07c8d49e4a056
 public class FinancialReport implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
