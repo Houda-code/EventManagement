@@ -4,6 +4,7 @@ import com.example.eventmanagement.Entities.Calendar;
 import com.example.eventmanagement.Entities.User;
 import com.example.eventmanagement.Repositories.CalendarRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -13,20 +14,39 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class CalendarServiceImpl implements ICalendarService {
-    CalendarRepository calendarRepository;
+    @Autowired
+    private  CalendarRepository calendarRepository;
     @Override
-    public Calendar addCalendar(Calendar calendar) {
+    public List<Calendar> getAllCalendars() {
+        return calendarRepository.findAll();
+    }
+
+    @Override
+    public Calendar getCalendarById(Integer CalendarId) {
+        return calendarRepository.findById(CalendarId).orElse(null);
+    }
+
+    @Override
+    public Calendar createCalendar(Calendar calendar) {
         return calendarRepository.save(calendar);
     }
 
     @Override
-    public List<Calendar> RetrieveAllCalendars() {
-        return (List<Calendar>) calendarRepository.findAll();
+    public Calendar updateCalendar(Integer CalendarId, Calendar calendar) {
+        if (calendarRepository.existsById(CalendarId)) {
+            calendar.setCalendarId(CalendarId);
+            return calendarRepository.save(calendar);
+        }
+        return null;
     }
 
     @Override
-    public Calendar GetCalendarByID(Integer CalendarId) {
-        return calendarRepository.findById(CalendarId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Calendar not found"));
+    public boolean deleteCalendar(Integer CalendarId) {
+        if (calendarRepository.existsById(CalendarId)) {
+            calendarRepository.deleteById(CalendarId);
+            return true;
+        }
+        return false;
     }
-}
+    }
+

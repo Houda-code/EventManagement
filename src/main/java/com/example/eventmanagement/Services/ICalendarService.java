@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface ICalendarService {
 
-    Calendar addCalendar(Calendar calendar);
-    List<Calendar> RetrieveAllCalendars();
-    Calendar GetCalendarByID(Integer CalendarId);
+  List<Calendar> getAllCalendars();
+  Calendar getCalendarById(Integer CalendarId);
+  Calendar createCalendar( Calendar calendar);
+  Calendar updateCalendar(Integer CalendarId, Calendar calendar);
+  boolean deleteCalendar(Integer CalendarId);
 }
