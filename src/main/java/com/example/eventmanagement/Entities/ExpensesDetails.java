@@ -20,6 +20,7 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class ExpensesDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

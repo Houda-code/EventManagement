@@ -4,5 +4,5 @@ import javax.persistence.Entity;
 
 
 public enum Role {
-    Participant,Organisation,Sponsor,Association
+    Participant,Organisation,Sponsor,Association,Client,Admin
 }

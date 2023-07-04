@@ -14,11 +14,8 @@ public class Facture implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Idfacture;
 
-
     @ManyToOne
     Evenement event;
-
-
     public void setIdfacture(Integer idfacture) {
     }
 
