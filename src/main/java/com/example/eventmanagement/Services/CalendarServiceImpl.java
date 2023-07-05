@@ -32,18 +32,17 @@ public class CalendarServiceImpl implements ICalendarService {
     }
 
     @Override
-<<<<<<< HEAD
+
     public Calendar updateCalendar(Integer CalendarId, Calendar calendar) {
         if (calendarRepository.existsById(CalendarId)) {
             calendar.setCalendarId(CalendarId);
             return calendarRepository.save(calendar);
         }
         return null;
-=======
+
     public List<Calendar> RetrieveAllCalendars() {
 
         return (List<Calendar>) calendarRepository.findAll();
->>>>>>> f5bb156e7a7eca2eb23fa9b2ebdfcf7dcf990728
     }
 
     @Override
