@@ -1,13 +1,10 @@
 package com.example.eventmanagement.Services;
 
 import com.example.eventmanagement.Entities.Calendar;
-import com.example.eventmanagement.Entities.User;
 import com.example.eventmanagement.Repositories.CalendarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -15,7 +12,8 @@ import java.util.List;
 @Service
 public class CalendarServiceImpl implements ICalendarService {
     @Autowired
-    private  CalendarRepository calendarRepository;
+    private CalendarRepository calendarRepository;
+
     @Override
     public List<Calendar> getAllCalendars() {
         return calendarRepository.findAll();
@@ -50,8 +48,13 @@ public class CalendarServiceImpl implements ICalendarService {
         if (calendarRepository.existsById(CalendarId)) {
             calendarRepository.deleteById(CalendarId);
             return true;
+
+        public List<Calendar> RetrieveAllCalendars () {
+            return (Calendar) calendarRepository.findAll();
+
         }
-        return false;
-    }
-    }
+
+
+
+}
 
