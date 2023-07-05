@@ -31,14 +31,14 @@ public class ExpensesDetailsSericeImpl implements ExpensesDetailsService {
     public ExpensesDetails createExpensesDetail(ExpensesDetails expensesDetail) {
         return  expensesDetailsRepository.save(expensesDetail);
     }
-    @Override
+    /*@Override
     public ExpensesDetails createExpensesDetail(ExpensesDetails expensesDetail, Integer financialReportId) {
         FinancialReport financialReport = financialReportRepository.findById(financialReportId)
                 .orElseThrow(() -> new EntityNotFoundException("ExpensesDetail with id " + financialReportId + " not found"));;
 
         expensesDetail.setFinancialReport(financialReport);
         return expensesDetailsRepository.save(expensesDetail);
-    }
+    }*/
 @Override
     public ExpensesDetails getExpensesDetailById(Integer id) {
         return expensesDetailsRepository.findById(id)

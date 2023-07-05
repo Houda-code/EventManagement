@@ -18,9 +18,11 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Table(name = "expensesdetails")
 public class ExpensesDetails implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ExpensesDetailId;
     private String ExpensesDetailType; //Type de dépense (par exemple, frais de personnel, frais de voyage, fournitures...)
     private double amount; //Montant de la dépense.

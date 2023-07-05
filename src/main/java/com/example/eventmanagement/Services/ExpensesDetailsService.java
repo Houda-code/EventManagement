@@ -9,7 +9,8 @@ public interface ExpensesDetailsService {
 
     List<ExpensesDetails> getAllExpensesDetails();
 
-    ExpensesDetails createExpensesDetail(ExpensesDetails expensesDetail, Integer financialReportId);
+
+   // ExpensesDetails createExpensesDetail(ExpensesDetails expensesDetail, Integer financialReportId);
 
     ExpensesDetails getExpensesDetailById(Integer id);
 
