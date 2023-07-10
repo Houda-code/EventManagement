@@ -1,13 +1,10 @@
 package com.example.eventmanagement.Controller;
 
-import com.example.eventmanagement.Entities.Calendar;
 import com.example.eventmanagement.Entities.Evenement;
-import com.example.eventmanagement.Entities.FinancialReport;
 import com.example.eventmanagement.Repositories.EventRepository;
 import com.example.eventmanagement.Services.IEventService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
