@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -21,31 +23,41 @@ public class Evenement implements Serializable {
     private Integer id;
     private String nameEvent;
     @Enumerated(EnumType.STRING)
-    private  EventCategory eventCategory;
+    private EventCategory eventCategory;
     @Enumerated(EnumType.STRING)
     private TypeEvent typeEvent;
     private String localisation;
     private String description;
     private Integer nbrMax;
-    @Temporal(TemporalType.DATE)
-    private Date startDateEvent;
-    @Temporal(TemporalType.DATE)
-    private Date endDate;
+    private LocalDate startDateEvent;
+
+    private LocalDate endDate;
+
     private Statut statut;
 
+<<<<<<< HEAD
     @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
     private Set<Ticket> tickets;
+=======
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
+    private Set<Calendar> calendars;
+>>>>>>> a4b603bc14ab0f2f3b9089fad2617df123b47279
 
-   @ManyToOne
+    @JsonIgnore
+    @ManyToOne
     User user;
 
-   @OneToOne
+    @JsonIgnore
+    @OneToOne
     private FinancialReport financialReport;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private Set<Facture> factures;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private Set<Reservation> reservations;
 
 }
