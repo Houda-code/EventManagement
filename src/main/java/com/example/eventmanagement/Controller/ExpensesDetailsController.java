@@ -12,6 +12,7 @@ import java.util.List;
     @RequestMapping("/ExpensesDetails")
 public class ExpensesDetailsController {
     /*
+
     private final ExpensesDetailsService expensesDetailsService;
 
 
@@ -58,7 +59,7 @@ public class ExpensesDetailsController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 */
-
+/*
 
     private final ExpensesDetailsService expensesDetailsService;
 
@@ -96,5 +97,5 @@ public class ExpensesDetailsController {
     public ResponseEntity<Void> deleteExpensesDetail(@PathVariable Integer id) {
         expensesDetailsService.deleteExpensesDetail(id);
         return ResponseEntity.noContent().build();
-    }
+    }*/
 }

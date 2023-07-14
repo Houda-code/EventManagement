@@ -28,7 +28,7 @@ public class FinancialReport implements Serializable {
     private double netIncome;//total des revenus moins les dépenses
 
 
-
+/*
     // Autres attributs et constructeurs
 
     // Méthodes setter pour assigner les valeurs aux attributs
@@ -97,10 +97,11 @@ public class FinancialReport implements Serializable {
     }
 
 
-    @OneToOne(mappedBy = "financialReport")
-    private Evenement event;
+
 
     @OneToMany(mappedBy = "financialReport", cascade = CascadeType.ALL)
     private List<ExpensesDetails> expensesDetails;
-
+*/
+@OneToOne(mappedBy = "financialReport")
+private Evenement event;
 }

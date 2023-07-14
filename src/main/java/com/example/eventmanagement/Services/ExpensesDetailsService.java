@@ -4,7 +4,7 @@ import com.example.eventmanagement.Entities.ExpensesDetails;
 
 import java.util.List;
 
-public interface ExpensesDetailsService {
+public interface ExpensesDetailsService {/*
     ExpensesDetails createExpensesDetail(ExpensesDetails expensesDetail);
 
     List<ExpensesDetails> getAllExpensesDetails();
@@ -15,5 +15,5 @@ public interface ExpensesDetailsService {
 
     ExpensesDetails updateExpensesDetail(Integer id, ExpensesDetails updatedExpensesDetail);
 
-    void deleteExpensesDetail(Integer id);
+    void deleteExpensesDetail(Integer id);*/
 }

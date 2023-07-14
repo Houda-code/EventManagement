@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 
 public class ExpensesDetailsSericeImpl implements ExpensesDetailsService {
-
+/*
     private ExpensesDetailsRepository expensesDetailsRepository;
     private FinancialReportRepository financialReportRepository;
 
@@ -70,5 +70,5 @@ public class ExpensesDetailsSericeImpl implements ExpensesDetailsService {
                 .orElseThrow(() -> new EntityNotFoundException("ExpensesDetail with id " + id + " not found"));
 
         expensesDetailsRepository.delete(expensesDetail);
-    }
+    }*/
 }

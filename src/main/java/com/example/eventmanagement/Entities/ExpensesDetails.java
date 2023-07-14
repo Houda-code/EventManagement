@@ -13,10 +13,11 @@ import java.util.Date;
 @Getter
 @Setter
 public class ExpensesDetails implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer ExpensesDetailId;
-    private String ExpensesDetailType; //Type de dépense (par exemple, frais de personnel, frais de voyage, fournitures...)
+    /*  private String ExpensesDetailType; //Type de dépense (par exemple, frais de personnel, frais de voyage, fournitures...)
     private double amount; //Montant de la dépense.
     @Temporal(TemporalType.DATE)
     private Date date; // Date de la dépense.
@@ -76,4 +77,5 @@ public class ExpensesDetails implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "fianceReport")
-    private FinancialReport financialReport;}
+    private FinancialReport financialReport;
+    */}
