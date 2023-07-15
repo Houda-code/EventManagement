@@ -1,6 +1,7 @@
 package com.example.eventmanagement.Services;
 
 import com.example.eventmanagement.Entities.Ticket;
+import com.example.eventmanagement.Entities.Evenement;
 import com.example.eventmanagement.Repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,6 @@ public class TicketServiceImpl implements ITicketService {
     public void deteteTicket(Integer ticketId) {
         ticketRepository.deleteById(ticketId);
     }
-
 
 
 
