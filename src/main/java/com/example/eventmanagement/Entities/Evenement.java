@@ -35,7 +35,7 @@ public class Evenement implements Serializable {
 
     private Statut statut;
 
-<<<<<<< HEAD
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
     private Set<Ticket> tickets;
 
