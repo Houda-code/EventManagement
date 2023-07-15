@@ -11,42 +11,33 @@ import java.util.List;
 @Service
 public class TicketServiceImpl implements ITicketService {
     @Autowired
-    private TicketRepository ticketRepository;
-    @Autowired
-    public TicketServiceImpl(TicketRepository ticketRepository) {
-        this.ticketRepository = ticketRepository;
-    }
-    @Override
-    public List<Ticket> getAllTickets() {
-        return ticketRepository.findAll();
-    }
+    TicketRepository ticketRepository;
 
     @Override
-    public Ticket getTicketById(Integer Ticketid) {
-        return ticketRepository.findById(Ticketid).orElse(null);
-    }
-
-    @Override
-    public Ticket createTicket(Ticket ticket) {
+    public Ticket addTicket(Ticket ticket) {
         return ticketRepository.save(ticket);
     }
 
     @Override
-    public Ticket updateTicket(Integer Ticketid, Ticket ticket) {
-        if (ticketRepository.existsById(Ticketid)) {
-            ticket.setTicketId(Ticketid);
-            return ticketRepository.save(ticket);
-        }
-        return null;
+    public List<Ticket> RetrieveAllTickets() {
+        return (List<Ticket>) ticketRepository.findAll();
     }
-        @Override
-        public boolean deleteTicket (Integer Ticketid){
-            if (ticketRepository.existsById(Ticketid)) {
-                ticketRepository.deleteById(Ticketid);
-                return true;
-            }
-            return false;
-        }
+
+    @Override
+    public Ticket getTicketById(Integer ticketId) {
+        return ticketRepository.findById(ticketId).orElse(null);
+    }
+
+    @Override
+    public Ticket updateTicket(Ticket ticket) {
+        return ticketRepository.save(ticket);
+    }
+
+    @Override
+    public void deteteTicket(Integer ticketId) {
+        ticketRepository.deleteById(ticketId);
+    }
+
 
 
 

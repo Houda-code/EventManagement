@@ -1,6 +1,7 @@
 package com.example.eventmanagement.Controller;
 
 import com.example.eventmanagement.Entities.Ticket;
+import com.example.eventmanagement.Repositories.TicketRepository;
 import com.example.eventmanagement.Services.ITicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,41 +14,38 @@ import java.util.List;
 
 @RequestMapping("/api/Tickets")
 public class TicketRestController {
-
+    @Autowired
     private ITicketService ticketService;
     @Autowired
-    public TicketRestController(ITicketService ticketService) {
-        this.ticketService = ticketService;
+    TicketRepository ticketRepository;
+    @PostMapping("/addTicket")
+    public Ticket addTicket(@RequestBody Ticket ticket){
+
+        return ticketRepository.save(ticket);
     }
     @GetMapping("/retrieveAllTickets")
-    public ResponseEntity<List<Ticket>> getAllTickets() {
-        List<Ticket> tickets = ticketService.getAllTickets();
-        return new ResponseEntity<>(tickets, HttpStatus.OK);
+    public List<Ticket> getTickets() {
+        List<Ticket> listTickets = ticketService.RetrieveAllTickets();
+        return listTickets;
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Ticket> getTicketById(Integer Ticketid) {
-        Ticket ticket = ticketService.getTicketById(Ticketid);
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Ticket> getTicketById(@PathVariable("id") Integer ticketId) {
+        Ticket ticket = ticketService.getTicketById(ticketId);
         if (ticket != null) {
-            return new ResponseEntity<>(ticket, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.ok(ticket);
+        }else {
+            return  ResponseEntity.notFound().build();
         }
     }
+    @PutMapping("updateTicket")
+    public Ticket updateTicket(@RequestBody Ticket ticket){
 
-    @PostMapping("/addTicket")
-    public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
-        Ticket createdTicket = ticketService.createTicket(ticket);
-        return new ResponseEntity<>(createdTicket, HttpStatus.CREATED);
+        return ticketService.updateTicket(ticket);
     }
 
     @DeleteMapping("/deleteTicket/{id}")
-    public ResponseEntity<Void> deleteTicket(@PathVariable("id") Integer Ticketid) {
-        boolean deleted = ticketService.deleteTicket(Ticketid);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public void deleteTicket(@RequestBody Integer ticketId){
+        ticketService.deteteTicket(ticketId);
     }
+
 }
