@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.time.LocalDate;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/Event")
@@ -27,6 +27,7 @@ public class EventControoler {
     @Autowired
     IEventService iEventService;
     @PostMapping("/add-Event")
+
     public Evenement addEvent(@RequestBody Evenement event){
 
         return eventRepository.save(event);
