@@ -1,5 +1,8 @@
 package com.example.eventmanagement.Auth;
+<<<<<<< HEAD
 
+=======
+>>>>>>> eyasoussia
 import com.example.eventmanagement.Entities.Role;
 import com.example.eventmanagement.Entities.User;
 import com.example.eventmanagement.Repositories.UserRepository;
@@ -9,8 +12,11 @@ import lombok.var;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> eyasoussia
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
