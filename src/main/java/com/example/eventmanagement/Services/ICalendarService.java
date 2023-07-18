@@ -10,8 +10,7 @@ public interface ICalendarService {
   List<Calendar> getAllCalendars();
   Calendar getCalendarById(Integer CalendarId);
   Calendar createCalendar( Calendar calendar);
+
+
   Calendar updateCalendar(Integer CalendarId, Calendar calendar);
-  boolean deleteCalendar(Integer CalendarId);
-
-
 }

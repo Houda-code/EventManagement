@@ -19,6 +19,8 @@ import java.util.List;
 public class CalendarRestController {
     @Autowired
     private ICalendarService calendarService;
+    @Autowired
+    private CalendarRepository calendarRepository;
 
     @GetMapping("/retrieveAllCalendars")
     public ResponseEntity<List<Calendar>> getAllCalendars() {
@@ -59,13 +61,8 @@ public class CalendarRestController {
     } */
 
     @DeleteMapping("/deleteCalendar/{id}")
-    public ResponseEntity<Void> deleteCalendar(@PathVariable("id") Integer calendarId) {
-        boolean deleted = calendarService.deleteCalendar(calendarId);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public void deleteCalendar(@PathVariable("id") Integer Calendarid){
+        calendarRepository.deleteById(Calendarid);
     }
 
 }
