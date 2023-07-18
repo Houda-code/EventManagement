@@ -21,7 +21,7 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Ticketid;
 
-    private Integer NumeroTicket;
+    private String NumeroTicket;
 
     private Integer Price;
 

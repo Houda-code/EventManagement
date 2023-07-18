@@ -43,10 +43,6 @@ public class EventServiceImpl implements IEventService{
         return (List<Evenement>) eventRepository.findAll();
     }
     @Override
-    public List<Evenement> searchByCategory(EventCategory eventCategory){
-        return eventRepository.findByEventCategory(eventCategory);
-    }
-    @Override
     public Evenement updateEvent(Evenement evenement){
         return eventRepository.save(evenement);
     }
