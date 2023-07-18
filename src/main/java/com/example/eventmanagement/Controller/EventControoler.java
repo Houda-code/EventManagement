@@ -32,6 +32,8 @@ public class EventControoler {
 
         return eventRepository.save(event);
     }
+    @CrossOrigin(origins = "*")
+
     @GetMapping("/retrieve-all-Events")
     public List<Evenement> getEvents() {
         List<Evenement> listEvents = iEventService.RetrieveAllEvents();
