@@ -1,6 +1,5 @@
 package com.example.eventmanagement.Services;
 
-import com.example.eventmanagement.Entities.Calendar;
 import com.example.eventmanagement.Entities.Evenement;
 import com.example.eventmanagement.Entities.EventCategory;
 import com.example.eventmanagement.Entities.Facture;
