@@ -10,8 +10,9 @@ public interface ReservationService {
 
     Reservation addReservation(Reservation reservation);
     Optional<Reservation> getReservationById(Integer Reservtid);
-
     List<Reservation> RetrieveAllReservations();
     Reservation saveReservation(Reservation reservation);
     void deleteReservation(Integer Reservtid);
+    Reservation makeReservation(Integer id,Reservation reservation);
+
 }

@@ -24,7 +24,7 @@ public class SecurityConfiguration {
                 .disable()
                 .authorizeHttpRequests()
              //  .requestMatchers("/api/v1/auth/**")
-              .antMatchers("/api/v1/auth/**")
+              .antMatchers("/**")
               .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -33,7 +33,8 @@ public class SecurityConfiguration {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .cors();
         return http.build();
 
 

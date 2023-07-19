@@ -51,4 +51,9 @@ public class ReservationController {
         reservationService.deleteReservation(Reservtid);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    @PostMapping("/{eventId}")
+    public ResponseEntity<Reservation> makeReservation(@PathVariable("eventId") Integer Id, @RequestBody Reservation reservation) {
+        Reservation createdReservation = reservationService.makeReservation(Id, reservation);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdReservation);
+    }
 }
