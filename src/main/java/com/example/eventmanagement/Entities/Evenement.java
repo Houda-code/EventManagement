@@ -33,13 +33,15 @@ public class Evenement implements Serializable {
 
     private LocalDate endDate;
 
+    @Column(name = "statut")
+    @Enumerated(EnumType.STRING)
     private Statut statut;
+
+
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
     private Set<Ticket> tickets;
-
-
 
 
     @JsonIgnore
@@ -57,5 +59,6 @@ public class Evenement implements Serializable {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private Set<Reservation> reservations;
+
 
 }
