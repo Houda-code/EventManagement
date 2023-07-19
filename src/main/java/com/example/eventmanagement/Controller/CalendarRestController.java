@@ -1,5 +1,4 @@
-package com.example.eventmanagement.Controller;
-
+/* package com.example.eventmanagement.Controller;
 import com.example.eventmanagement.Entities.Calendar;
 
 import com.example.eventmanagement.Repositories.CalendarRepository;
@@ -58,7 +57,7 @@ public class CalendarRestController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    } */
+    }
 
     @DeleteMapping("/deleteCalendar/{id}")
     public void deleteCalendar(@PathVariable("id") Integer Calendarid){
@@ -66,3 +65,4 @@ public class CalendarRestController {
     }
 
 }
+*/

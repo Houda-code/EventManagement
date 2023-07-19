@@ -37,29 +37,17 @@ public class Evenement implements Serializable {
     @Enumerated(EnumType.STRING)
     private Statut statut;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
-    private Set<Ticket> tickets;
-=======
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
-    private Set<Calendar> calendars;
->>>>>>> a4b603bc14ab0f2f3b9089fad2617df123b47279
-=======
 
-<<<<<<< HEAD
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
-    private Set<Calendar> calendars;
-=======
     @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
     private Set<Ticket> tickets;
 
 
 
->>>>>>> 5e4d26d739a0749c074a3d5534c64e858be8b6bd
->>>>>>> 031699a640452afb30b887b2646ee6612033b17e
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
+    private Set<Ticket> ticket;
+
+
 
     @JsonIgnore
     @ManyToOne

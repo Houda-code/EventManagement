@@ -1,17 +1,12 @@
 package com.example.eventmanagement.Controller;
 
-import com.example.eventmanagement.Entities.Evenement;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import com.example.eventmanagement.Entities.EventCategory;
-import com.example.eventmanagement.Entities.Facture;
->>>>>>> a4b603bc14ab0f2f3b9089fad2617df123b47279
-=======
+
+import com.example.eventmanagement.Entities.*;
+
 
 import com.example.eventmanagement.Entities.EventCategory;
 import com.example.eventmanagement.Entities.Facture;
->>>>>>> 031699a640452afb30b887b2646ee6612033b17e
+
 import com.example.eventmanagement.Repositories.EventRepository;
 import com.example.eventmanagement.Services.IEventService;
 import lombok.AllArgsConstructor;
@@ -40,6 +35,8 @@ public class EventControoler {
 
         return eventRepository.save(event);
     }
+    @CrossOrigin(origins = "*")
+
     @GetMapping("/retrieve-all-Events")
     public List<Evenement> getEvents() {
         List<Evenement> listEvents = iEventService.RetrieveAllEvents();
