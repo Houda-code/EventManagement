@@ -18,7 +18,6 @@ public interface IEventService  {
     List<Evenement> searchEventByCategory(EventCategory eventCategory);
 
 
-
     Evenement updateEvent(Evenement evenement);
 
     List<Evenement> searchByName(String name);

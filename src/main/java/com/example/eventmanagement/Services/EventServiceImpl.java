@@ -76,5 +76,4 @@ public class EventServiceImpl implements IEventService{
         List<Evenement> le = eventRepository.findByStartDateEventBetween(startDate,endDate);
         return le;
     }
-
 }

@@ -1,5 +1,6 @@
 package com.example.eventmanagement.Controller;
 
+import com.example.eventmanagement.Entities.Evenement;
 import com.example.eventmanagement.Entities.Reservation;
 import com.example.eventmanagement.Entities.User;
 import com.example.eventmanagement.Repositories.ReservationRepository;
@@ -10,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/Resservation")
@@ -21,6 +22,15 @@ public class ReservationController {
     @PostMapping("/add-Reservation")
     public Reservation addReservation(@RequestBody Reservation reservation){
         return  reservationRepository.save(reservation);
+    }
+    @PostMapping("makeReservation/{Id}")
+    public ResponseEntity<?> makeReservation(@PathVariable Integer Id, @RequestBody Reservation reservation) {
+        try {
+            Reservation createdReservation = reservationService.createReservation(Id, reservation);
+            return ResponseEntity.ok(createdReservation);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Une erreur s'est produite lors de la création de la réservation.");
+        }
     }
 
     @GetMapping("/retrieve-all-Reservation")
@@ -50,5 +60,9 @@ public class ReservationController {
         }
         reservationService.deleteReservation(Reservtid);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @GetMapping("GetEventByReservation/{reservationId}")
+    public Evenement getEventByReservationId(@PathVariable Integer reservationId) {
+        return reservationService.getEventByReservationId(reservationId);
     }
 }
