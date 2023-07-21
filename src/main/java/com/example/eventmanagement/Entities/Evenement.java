@@ -29,26 +29,20 @@ public class Evenement implements Serializable {
     private String localisation;
     private String description;
     private Integer nbrMax;
+
     private LocalDate startDateEvent;
 
     private LocalDate endDate;
-
     @Column(name = "statut")
     @Enumerated(EnumType.STRING)
     private Statut statut;
 
 
-<<<<<<< HEAD
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
-    private Set<Calendar> calendars;
-=======
+
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
     private Set<Ticket> tickets;
 
-
-
->>>>>>> 5e4d26d739a0749c074a3d5534c64e858be8b6bd
 
     @JsonIgnore
     @ManyToOne

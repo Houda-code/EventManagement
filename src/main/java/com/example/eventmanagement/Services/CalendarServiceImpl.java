@@ -1,4 +1,4 @@
-package com.example.eventmanagement.Services;
+/**package com.example.eventmanagement.Services;
 
 import com.example.eventmanagement.Entities.Calendar;
 import com.example.eventmanagement.Repositories.CalendarRepository;
@@ -50,10 +50,10 @@ public class CalendarServiceImpl implements ICalendarService {
 
         }
         return false;
-    }*/
+    }
     public void deleteEvent(Integer id){
         calendarRepository.deleteById(id);
     }
 
-}
+}*/
 
