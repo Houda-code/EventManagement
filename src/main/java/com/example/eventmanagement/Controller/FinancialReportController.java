@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/financialReports")
@@ -36,8 +36,8 @@ public class FinancialReportController {
         List<FinancialReport> listRapports = financialReportService.RetrieveAllRapports();
         return listRapports;
     }
-    @GetMapping("/get/{id}")
-    public ResponseEntity<FinancialReport> getRapportById(@PathVariable("id") Integer ReportId) {
+    @GetMapping("/get/{ReportId}")
+    public ResponseEntity<FinancialReport> getRapportById(@PathVariable("ReportId") Integer ReportId) {
         FinancialReport financialReport = financialReportService.getRapportById(ReportId);
         if (financialReport != null) {
             return ResponseEntity.ok(financialReport);
@@ -47,12 +47,11 @@ public class FinancialReportController {
     }
     @PutMapping("updateRapport")
     public FinancialReport updateRapport(@RequestBody FinancialReport financialReport){
-
         return financialReportService.updateRapport(financialReport);
     }
 
     @DeleteMapping("/deleteRapport/{id}")
-    public void deleteRapport(@RequestBody Integer ReportId){
+    public void deleteRapport(@PathVariable("id") Integer ReportId){
         financialReportService.deteteRapport(ReportId);
     }
 
