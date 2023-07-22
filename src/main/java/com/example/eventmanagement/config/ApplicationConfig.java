@@ -25,7 +25,7 @@ public class ApplicationConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> repository.findUserByEmail(username);
-               // .orElseThrow(() -> new UsernameNotFoundException("User not found")); //i changer the type of the methoD findUserByEmail in the repo from optional to User
+        // .orElseThrow(() -> new UsernameNotFoundException("User not found")); //i changer the type of the methoD findUserByEmail in the repo from optional to User
     }
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -45,3 +45,4 @@ public class ApplicationConfig {
 
 
 }
+

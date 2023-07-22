@@ -22,11 +22,13 @@ public class SecurityConfiguration {
 
         http
                 .csrf()
+
                 .disable()
+                .cors().and() //  la configuration CORS
                 .authorizeHttpRequests()
-             //  .requestMatchers("/api/v1/auth/**")
-              .antMatchers("/**")
-              .permitAll()
+                //  .requestMatchers("/api/v1/auth/**")
+                .antMatchers("/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -34,8 +36,10 @@ public class SecurityConfiguration {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .cors();
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                //.cors();
+
         return http.build();
 
-}}
+    }}
+

@@ -18,6 +18,7 @@ public interface IEventService  {
     List<Evenement> searchEventByCategory(EventCategory eventCategory);
 
 
+    Evenement GetEventbyticketId(Integer TicketId);
 
     Evenement updateEvent(Evenement evenement);
 

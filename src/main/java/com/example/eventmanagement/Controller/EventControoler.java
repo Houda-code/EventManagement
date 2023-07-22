@@ -51,6 +51,11 @@ public class EventControoler {
             return  ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/getEventByTicketId/{id}")
+    public Evenement getEventByTicketId(@PathVariable("id") Integer TicketId) {
+        return   iEventService.GetEventbyticketId(TicketId);
+
+    }
 
 @GetMapping("/search-by-categorie/{categorie}")
 public List<Evenement> searchByCategory(@PathVariable("categorie") EventCategory eventCategory){
