@@ -19,13 +19,8 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Reservtid;
-    private String ReservName;
-    @Temporal(TemporalType.DATE)
-    private Date ReservDate;
-
     @ManyToOne
     Evenement event;
-
     @OneToOne
     private Ticket ticket;
 }

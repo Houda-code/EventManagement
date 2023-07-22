@@ -19,6 +19,8 @@ public interface IEventService  {
 
 
 
+    Evenement GetEventbyticketId(Integer TicketId);
+
     Evenement updateEvent(Evenement evenement);
 
     List<Evenement> searchByName(String name);

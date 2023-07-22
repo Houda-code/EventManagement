@@ -1,9 +1,12 @@
 package com.example.eventmanagement.Controller;
 
-import com.example.eventmanagement.Entities.Evenement;
+
+import com.example.eventmanagement.Entities.*;
+
 
 import com.example.eventmanagement.Entities.EventCategory;
 import com.example.eventmanagement.Entities.Facture;
+
 import com.example.eventmanagement.Repositories.EventRepository;
 import com.example.eventmanagement.Services.IEventService;
 import lombok.AllArgsConstructor;
@@ -12,11 +15,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityNotFoundException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.time.LocalDate;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/Event")
@@ -47,6 +51,11 @@ public class EventControoler {
         }else {
             return  ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping("/getEventByTicketId/{id}")
+    public Evenement getEventByTicketId(@PathVariable("id") Integer TicketId) {
+        return   iEventService.GetEventbyticketId(TicketId);
+
     }
 
 @GetMapping("/search-by-categorie/{categorie}")
@@ -80,6 +89,37 @@ public List<Evenement> searchByCategory(@PathVariable("categorie") EventCategory
     @DeleteMapping("/delete/{id}")
     public void deleteEvent(@PathVariable("id") Integer id){
         eventRepository.deleteById(id);
+    }
+
+    @GetMapping("getName/{Id}")
+    public String getEventNameById(@PathVariable Integer Id) {
+        Evenement event = iEventService.getEventById(Id);
+        if (event != null) {
+            return event.getNameEvent();
+        } else {
+            // Vous pouvez personnaliser le comportement en cas d'événement introuvable.
+            throw new EntityNotFoundException("L'événement avec l'ID " + Id + " n'a pas été trouvé.");
+        }
+    }
+    @GetMapping("getLocalisation/{Id}")
+    public String getEventLocationById(@PathVariable Integer Id) {
+        Evenement event = iEventService.getEventById(Id);
+        if (event != null) {
+            return event.getLocalisation();
+        } else {
+            // Vous pouvez personnaliser le comportement en cas d'événement introuvable.
+            throw new EntityNotFoundException("L'événement avec l'ID " + Id + " n'a pas été trouvé.");
+        }
+    }
+    @GetMapping("getStartDate/{Id}")
+    public LocalDate getStartDateById(@PathVariable Integer Id) {
+        Evenement event = iEventService.getEventById(Id);
+        if (event != null) {
+            return event.getStartDateEvent();
+        } else {
+            // Vous pouvez personnaliser le comportement en cas d'événement introuvable.
+            throw new EntityNotFoundException("L'événement avec l'ID " + Id + " n'a pas été trouvé.");
+        }
     }
 }
 

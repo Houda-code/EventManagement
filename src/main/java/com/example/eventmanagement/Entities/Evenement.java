@@ -1,5 +1,6 @@
 package com.example.eventmanagement.Entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,20 +30,18 @@ public class Evenement implements Serializable {
     private String localisation;
     private String description;
     private Integer nbrMax;
+
     private LocalDate startDateEvent;
 
     private LocalDate endDate;
-
     @Column(name = "statut")
     @Enumerated(EnumType.STRING)
     private Statut statut;
 
-
-
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy="event")
-    private Set<Ticket> tickets;
-
+    //@JsonManagedReference // Ajoutez cette annotation pour gérer la sérialisation de la relation bidirectionnelle
+    @JsonIgnore
+    private Set<Ticket> ticket;
 
     @JsonIgnore
     @ManyToOne
@@ -59,6 +58,5 @@ public class Evenement implements Serializable {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "event")
     private Set<Reservation> reservations;
-
 
 }

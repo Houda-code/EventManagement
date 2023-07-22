@@ -2,8 +2,9 @@ package com.example.eventmanagement.Services;
 
 import com.example.eventmanagement.Entities.Evenement;
 import com.example.eventmanagement.Entities.EventCategory;
-import com.example.eventmanagement.Entities.Facture;
+import com.example.eventmanagement.Entities.Ticket;
 import com.example.eventmanagement.Repositories.EventRepository;
+import com.example.eventmanagement.Repositories.TicketRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -20,7 +22,8 @@ import java.util.ArrayList;
 public class EventServiceImpl implements IEventService{
     @Autowired
     EventRepository eventRepository;
-
+    @Autowired
+    TicketRepository ticketRepository;
   @Override
   public Evenement addEvent(Evenement event) {
       return eventRepository.save(event);
@@ -41,6 +44,12 @@ public class EventServiceImpl implements IEventService{
     public List<Evenement> RetrieveAllEvents() {
 
         return (List<Evenement>) eventRepository.findAll();
+    }
+    @Override
+    public Evenement GetEventbyticketId(Integer TicketId) {
+          Ticket t = ticketRepository.findById(TicketId).get();
+
+        return  eventRepository.findAll().stream().filter(evenement -> evenement.getTicket().contains(t)).collect(Collectors.toList()).get(0);
     }
     @Override
     public Evenement updateEvent(Evenement evenement){

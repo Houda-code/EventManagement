@@ -1,4 +1,4 @@
-package com.example.eventmanagement.corsConfigPack;
+/* package com.example.eventmanagement.corsConfigPack;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -15,3 +15,5 @@ public class corsConfig implements WebMvcConfigurer {
                 .allowedHeaders("*"); // Allowed request headers
     }
 }
+
+ */

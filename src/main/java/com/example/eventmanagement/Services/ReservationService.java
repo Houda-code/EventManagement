@@ -1,4 +1,5 @@
 package com.example.eventmanagement.Services;
+import com.example.eventmanagement.Entities.Evenement;
 import com.example.eventmanagement.Entities.Facture;
 import com.example.eventmanagement.Entities.Payment;
 import com.example.eventmanagement.Entities.Reservation;
@@ -9,9 +10,18 @@ import java.util.Optional;
 public interface ReservationService {
 
     Reservation addReservation(Reservation reservation);
-    Optional<Reservation> getReservationById(Integer Reservtid);
 
+    Optional<Reservation> getReservationById(Integer Reservtid);
     List<Reservation> RetrieveAllReservations();
+
     Reservation saveReservation(Reservation reservation);
+
     void deleteReservation(Integer Reservtid);
+    List<Evenement> getAllEventsForReservations();
+    Reservation makeReservation(Integer eventId);
+    Reservation createReservation(Integer Id, Reservation reservation);
+    //Evenement getEventByReservationId(Integer reservationId);
+
 }
+
+

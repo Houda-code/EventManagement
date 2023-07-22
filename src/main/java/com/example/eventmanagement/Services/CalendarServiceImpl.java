@@ -1,10 +1,13 @@
-/**package com.example.eventmanagement.Services;
+/* package com.example.eventmanagement.Services;
 
 import com.example.eventmanagement.Entities.Calendar;
+import com.example.eventmanagement.Entities.User;
 import com.example.eventmanagement.Repositories.CalendarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -37,23 +40,15 @@ public class CalendarServiceImpl implements ICalendarService {
         }
         return null;
     }
-
-    public List<Calendar> RetrieveAllCalendars() {
-
-        return (List<Calendar>) calendarRepository.findAll();
-    }
-   /* @Override
-    public boolean deleteCalendar(Integer CalendarId) {
+    @Override
+    public boolean deleteCalendar (Integer CalendarId){
         if (calendarRepository.existsById(CalendarId)) {
             calendarRepository.deleteById(CalendarId);
             return true;
-
         }
         return false;
     }
-    public void deleteEvent(Integer id){
-        calendarRepository.deleteById(id);
-    }
+}
 
-}*/
+ */
 
