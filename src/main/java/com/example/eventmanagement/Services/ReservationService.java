@@ -17,11 +17,11 @@ public interface ReservationService {
     Reservation saveReservation(Reservation reservation);
 
     void deleteReservation(Integer Reservtid);
-    Reservation makeReservation(Integer id,Reservation reservation);
-
-
+    List<Evenement> getAllEventsForReservations();
+    Reservation makeReservation(Integer eventId);
     Reservation createReservation(Integer Id, Reservation reservation);
-    Evenement getEventByReservationId(Integer reservationId);
+    //Evenement getEventByReservationId(Integer reservationId);
+
 }
 
 
