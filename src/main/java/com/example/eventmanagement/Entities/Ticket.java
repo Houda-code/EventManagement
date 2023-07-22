@@ -32,16 +32,16 @@ public class Ticket implements Serializable {
 
 @PrePersist
     public void prePersist() {
-        DateNow = LocalDate.now(); // Définir le champ DateNow sur la date actuelle avant la persistance
+        DateNow = LocalDate.now();
     }
 
     @Enumerated(EnumType.STRING)
     private TypeTicket typeTicket;
 
     @ManyToOne
-    @JoinColumn(name = "id") // Assurez-vous que le nom de la colonne correspond au nom de la colonne de clé étrangère dans la table Ticket
-    @JsonBackReference // Ajoutez cette annotation pour casser la référence cyclique lors de la sérialisation
-    @JsonManagedReference // Ajoutez cette annotation pour gérer la sérialisation de la relation bidirectionnelle
+    @JoinColumn(name = "id")
+    @JsonBackReference // casser la référence cyclique lors de la sérialisation
+    @JsonManagedReference // gérer la sérialisation de la relation bidirectionnelle
 
     private Evenement event;
 

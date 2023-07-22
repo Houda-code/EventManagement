@@ -19,22 +19,21 @@ public class TicketServiceImpl implements ITicketService {
     @Autowired
     EventRepository eventRepository;
 
-    private static final int THRESHOLD_LIKES = 5; // Constante pour le nombre de likes minimum pour être le "Best Event"
 
 
     @Override
     public Ticket addTicket(Ticket ticket) {
-        // Récupérer l'ID de l'événement associé au ticket
+
         Integer id = ticket.getEvent().getId();
 
-        // Rechercher l'événement par son ID dans la base de données
-        Optional<Evenement> optionalEvent = eventRepository.findById(id);
+        Optional<Evenement> optionalEvent = eventRepository.findById(id);// Rechercher l'événement par son ID dans la base de données
 
-        // Si l'événement existe, le lier au ticket et l'enregistrer dans la base de données
+
         if (optionalEvent.isPresent()) {
-            Evenement evenement = optionalEvent.get();
-            ticket.setEvent(evenement); // Lier le ticket à l'événement en utilisant la méthode setEvent()
-            return ticketRepository.save(ticket); // Enregistrez le ticket dans la base de données en utilisant le repository
+            Evenement evenement = optionalEvent.get();// Si l'événement existe, le lier au ticket et l'enregistrer dans la base de données
+
+            ticket.setEvent(evenement);
+            return ticketRepository.save(ticket);
         } else {
             // Gérer le cas où l'événement n'existe pas ou l'ID est incorrect
             throw new IllegalArgumentException("Événement introuvable pour cet ID : " + id);
@@ -69,7 +68,7 @@ public class TicketServiceImpl implements ITicketService {
             Ticket ticket = ticketOptional.get();
             return ticket.getEvent();
         }
-        return null; // ou lève une exception si nécessaire
+        return null; //
     }
     @Override
     public Evenement findEventById(Integer eventId) {
