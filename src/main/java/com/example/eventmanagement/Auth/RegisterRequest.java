@@ -19,4 +19,8 @@ public class RegisterRequest {
     private String password;
     private Integer numTel;
     private Role role;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 90af3fe1a0f63b7be6a9e5fa3cc32222cd4a87fe

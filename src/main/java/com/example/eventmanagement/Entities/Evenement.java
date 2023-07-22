@@ -30,10 +30,10 @@ public class Evenement implements Serializable {
     private String localisation;
     private String description;
     private Integer nbrMax;
+
     private LocalDate startDateEvent;
 
     private LocalDate endDate;
-
     @Column(name = "statut")
     @Enumerated(EnumType.STRING)
     private Statut statut;

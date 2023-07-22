@@ -1,4 +1,9 @@
+
 /* package com.example.eventmanagement.Controller;
+=======
+/*package com.example.eventmanagement.Controller;
+
+>>>>>>> 90af3fe1a0f63b7be6a9e5fa3cc32222cd4a87fe
 import com.example.eventmanagement.Entities.Calendar;
 
 import com.example.eventmanagement.Repositories.CalendarRepository;
@@ -65,4 +70,5 @@ public class CalendarRestController {
     }
 
 }
+<<<<<<< HEAD
 */
