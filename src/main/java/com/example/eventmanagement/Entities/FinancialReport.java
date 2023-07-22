@@ -30,7 +30,7 @@ public class FinancialReport implements Serializable {
     private Integer ReportId;
     private String title;  //Titre ou nom du rapport financier
     private String description; //Titre ou nom du rapport financier
-        @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)
     private Date startDate; //Date de début de la période couverte par le rapport financier.
     @Temporal(TemporalType.DATE)
     private Date endDate; //Date de fin de la période couverte par le rapport financier.
@@ -43,6 +43,8 @@ public class FinancialReport implements Serializable {
     // Autres attributs et constructeurs
 
     // Méthodes setter pour assigner les valeurs aux attributs
+
+    /*
     public Integer getReportId() {
         return ReportId;
     }
@@ -106,7 +108,7 @@ public class FinancialReport implements Serializable {
     public void setNetIncome(double netIncome) {
         this.netIncome = netIncome;
     }
-
+*/
 
     @OneToOne(mappedBy = "financialReport")
     private Evenement event;

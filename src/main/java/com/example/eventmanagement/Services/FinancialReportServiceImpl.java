@@ -1,13 +1,22 @@
 package com.example.eventmanagement.Services;
 
+import com.example.eventmanagement.Entities.Evenement;
+import com.example.eventmanagement.Entities.EventCategory;
 import com.example.eventmanagement.Entities.FinancialReport;
+import com.example.eventmanagement.Entities.Ticket;
+import com.example.eventmanagement.Repositories.EventRepository;
 import com.example.eventmanagement.Repositories.FinancialReportRepository;
+import com.example.eventmanagement.Repositories.TicketRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,7 +27,103 @@ public class FinancialReportServiceImpl implements FinancialReportService {
 
 
 
-    private final FinancialReportRepository financialReportRepository;
+
+
+
+    @Autowired
+    FinancialReportRepository financialReportRepository;
+
+    @Override
+    public FinancialReport addRapport(FinancialReport financialReport) {
+        return financialReportRepository.save(financialReport);
+    }
+
+    @Override
+    public List<FinancialReport> RetrieveAllRapports() {
+        return (List<FinancialReport>) financialReportRepository.findAll();
+    }
+
+    @Override
+    public FinancialReport getRapportById(Integer ReportId) {
+        return financialReportRepository.findById(ReportId).orElse(null);
+    }
+
+    @Override
+    public FinancialReport updateRapport(FinancialReport financialReport) {
+        return financialReportRepository.save(financialReport);
+    }
+
+    @Override
+    public void deteteRapport(Integer ReportId) {
+        financialReportRepository.deleteById(ReportId);
+    }
+
+
+
+/*
+    @Autowired
+    FinancialReportRepository financialReportRepository;
+
+    @Override
+    public FinancialReport addRapport(FinancialReport financialReport) {
+        return financialReportRepository.save(financialReport);
+    }
+
+
+
+
+    public  FinancialReport getRapportById(Integer id) {
+        return  financialReportRepository.findById(id).orElse(null);
+    }
+
+
+    public void deleteEvent(Integer id){
+        financialReportRepository.deleteById(id);
+    }
+
+    @Override
+    public List<FinancialReport>RetrieveAllRapport() {
+
+        return (List<FinancialReport>) financialReportRepository.findAll();
+    }
+    @Override
+    public FinancialReport updateRapport(FinancialReport financialReport){
+        return financialReportRepository.save(financialReport);
+    }
+/*
+    @Override
+    public List<FinancialReport> searchByName(String name) {
+        String searchc = name.toLowerCase();
+        List<FinancialReport> le = financialReportRepository.findAll();
+        List<FinancialReport> lf = new ArrayList<>();
+        for(FinancialReport e: le) {
+            if(e.getTitle()!=null){
+                if(e.getTitle().toLowerCase().equals(searchc)){
+                    lf.add(e);
+                }
+            }
+        }
+        return lf;
+    }*/
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /*private final FinancialReportRepository financialReportRepository;
 
     @Override
     public FinancialReport createFinancialReport(FinancialReport financialReport) {
@@ -71,4 +176,4 @@ public class FinancialReportServiceImpl implements FinancialReportService {
         // Utilisez le repository pour supprimer le rapport financier de la base de données
         financialReportRepository.delete(financialReport);
     }
-}
+}*/
